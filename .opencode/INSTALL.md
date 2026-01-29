@@ -10,7 +10,7 @@
 ### 1. Clone Superpowers
 
 ```bash
-git clone https://github.com/obra/superpowers.git ~/.config/opencode/superpowers
+git clone https://github.com/ANewCoderMin/superpowers-model.git ~/.config/opencode/superpowers
 ```
 
 ### 2. Register the Plugin

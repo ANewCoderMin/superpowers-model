@@ -23,7 +23,7 @@ Fetch and follow instructions from https://raw.githubusercontent.com/obra/superp
 
 ```bash
 mkdir -p ~/.codex/superpowers
-git clone https://github.com/obra/superpowers.git ~/.codex/superpowers
+git clone https://github.com/ANewCoderMin/superpowers-model.git ~/.codex/superpowers
 ```
 
 #### 2. Install Bootstrap
