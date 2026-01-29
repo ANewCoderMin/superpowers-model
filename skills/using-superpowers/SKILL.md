@@ -23,6 +23,15 @@ This is not negotiable. This is not optional. You cannot rationalize your way ou
 
 **Invoke relevant or requested skills BEFORE any response or action.** Even a 1% chance a skill might apply means that you should invoke the skill to check. If an invoked skill turns out to be wrong for the situation, you don't need to use it.
 
+## 本仓库定制：禁用技能
+
+以下技能在本仓库被禁用，**无论是否看似适用，都不要触发或加载**：
+
+- `superpowers:using-git-worktrees`
+- `superpowers:test-driven-development`
+
+对应流程请直接在当前工作区执行，测试可按需要补充，但**不强制 TDD**。
+
 ```dot
 digraph skill_flow {
     "User message received" [shape=doublecircle];
