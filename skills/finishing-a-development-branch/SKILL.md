@@ -1,6 +1,6 @@
 ---
 name: finishing-a-development-branch
-description: Use when implementation is complete, all tests pass, and you need to decide how to integrate the work - guides completion of development work by presenting structured options for merge, PR, or cleanup
+description: Use when implementation is complete and you need to decide how to integrate the work - guides completion of development work by presenting structured options for merge, PR, or cleanup
 ---
 
 # Finishing a Development Branch
@@ -9,22 +9,27 @@ description: Use when implementation is complete, all tests pass, and you need t
 
 Guide completion of development work by presenting clear options and handling chosen workflow.
 
-**Core principle:** Verify tests → Present options → Execute choice → Clean up.
+**Core principle:** 询问测试意图 →（如需）验证测试 → Present options → Execute choice → Clean up.
 
 **Announce at start:** "I'm using the finishing-a-development-branch skill to complete this work."
 
 ## The Process
 
-### Step 1: Verify Tests
+### Step 1: Ask About Tests
 
-**Before presenting options, verify tests pass:**
+**默认先询问是否需要测试，未明确要求则跳过测试：**
+```
+需要我运行测试吗？如果需要，请告诉我具体命令或范围。
+```
+
+**若开发者要求测试，再执行：**
 
 ```bash
 # Run project's test suite
 npm test / cargo test / pytest / go test ./...
 ```
 
-**If tests fail:**
+**If tests fail (仅在执行测试时):**
 ```
 Tests failing (<N> failures). Must fix before completing:
 
@@ -36,6 +41,8 @@ Cannot proceed with merge/PR until tests pass.
 Stop. Don't proceed to Step 2.
 
 **If tests pass:** Continue to Step 2.
+
+**If tests are skipped:** Continue to Step 2 and注明“未运行测试（未被要求）”。
 
 ### Step 2: Determine Base Branch
 
@@ -77,7 +84,7 @@ git pull
 # Merge feature branch
 git merge <feature-branch>
 
-# Verify tests on merged result
+# Verify tests on merged result (仅在开发者要求测试时)
 <test command>
 
 # If tests pass
@@ -160,9 +167,13 @@ git worktree remove <worktree-path>
 
 ## Common Mistakes
 
-**Skipping test verification**
-- **Problem:** Merge broken code, create failing PR
-- **Fix:** Always verify tests before offering options
+**未确认测试意图直接跑测试**
+- **Problem:** 不必要的流程/时间成本
+- **Fix:** 先询问开发者是否需要测试
+
+**未标注测试状态**
+- **Problem:** 误导为已验证
+- **Fix:** 明确标注“未运行测试（未被要求）”
 
 **Open-ended questions**
 - **Problem:** "What should I do next?" → ambiguous
@@ -180,12 +191,12 @@ git worktree remove <worktree-path>
 
 **Never:**
 - Proceed with failing tests
-- Merge without verifying tests on result
+- 开发者明确要求测试却跳过
 - Delete work without confirmation
 - Force-push without explicit request
 
 **Always:**
-- Verify tests before offering options
+- 先询问是否需要测试
 - Present exactly 4 options
 - Get typed confirmation for Option 4
 - Clean up worktree for Options 1 & 4 only

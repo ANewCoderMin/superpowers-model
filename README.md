@@ -91,7 +91,7 @@ Fetch and follow instructions from https://raw.githubusercontent.com/obra/superp
 
 6. **requesting-code-review** - Activates between tasks. Reviews against plan, reports issues by severity. Critical issues block progress.
 
-7. **finishing-a-development-branch** - Activates when tasks complete. Verifies tests, presents options (merge/PR/keep/discard), cleans up worktree.
+7. **finishing-a-development-branch** - Activates when tasks complete. 先询问是否需要测试，按需验证后给出选项（merge/PR/keep/discard），再清理 worktree。
 
 **The agent checks for relevant skills before any task.** Mandatory workflows, not suggestions.
 

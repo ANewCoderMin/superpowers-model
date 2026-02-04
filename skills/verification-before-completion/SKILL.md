@@ -1,13 +1,13 @@
 ---
 name: verification-before-completion
-description: Use when about to claim work is complete, fixed, or passing, before committing or creating PRs - requires running verification commands and confirming output before making any success claims; evidence before assertions always
+description: Use when about to make verification claims (tests pass, bug fixed, build succeeds). Requires running verification commands and confirming output before asserting success; evidence before assertions always
 ---
 
 # Verification Before Completion
 
 ## Overview
 
-Claiming work is complete without verification is dishonesty, not efficiency.
+对“验证性结论”必须有证据支撑；未验证就明确说未验证。
 
 **Core principle:** Evidence before claims, always.
 
@@ -16,15 +16,15 @@ Claiming work is complete without verification is dishonesty, not efficiency.
 ## The Iron Law
 
 ```
-NO COMPLETION CLAIMS WITHOUT FRESH VERIFICATION EVIDENCE
+NO VERIFICATION CLAIMS WITHOUT FRESH EVIDENCE
 ```
 
-If you haven't run the verification command in this message, you cannot claim it passes.
+如果没有运行验证命令，就不能声称“通过/修复/可用/已验证”。
 
 ## The Gate Function
 
 ```
-BEFORE claiming any status or expressing satisfaction:
+BEFORE claiming any verification status:
 
 1. IDENTIFY: What command proves this claim?
 2. RUN: Execute the FULL command (fresh, complete)
@@ -32,7 +32,7 @@ BEFORE claiming any status or expressing satisfaction:
 4. VERIFY: Does output confirm the claim?
    - If NO: State actual status with evidence
    - If YES: State claim WITH evidence
-5. ONLY THEN: Make the claim
+5. ONLY THEN: Make the verification claim
 
 Skip any step = lying, not verifying
 ```
@@ -52,13 +52,13 @@ Skip any step = lying, not verifying
 ## Red Flags - STOP
 
 - Using "should", "probably", "seems to"
-- Expressing satisfaction before verification ("Great!", "Perfect!", "Done!", etc.)
-- About to commit/push/PR without verification
+- Expressing satisfaction with verification status before verification ("Tests pass!", etc.)
+- About to claim "verified" without running verification
 - Trusting agent success reports
 - Relying on partial verification
 - Thinking "just this once"
 - Tired and wanting work over
-- **ANY wording implying success without having run verification**
+- **ANY wording implying verified success without having run verification**
 
 ## Rationalization Prevention
 
@@ -104,6 +104,13 @@ Skip any step = lying, not verifying
 ✅ Agent reports success → Check VCS diff → Verify changes → Report actual state
 ❌ Trust agent report
 ```
+
+## When Verification Is Not Requested
+
+如果开发者没有要求测试或验证：
+- 不要主动运行验证
+- 明确写出状态：**“未运行测试（未被要求）”**
+- 只陈述实现完成/改动范围，不做“已验证/通过/修复完成”的结论
 
 ## Why This Matters
 
