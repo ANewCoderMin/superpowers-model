@@ -72,5 +72,6 @@ After all tasks complete and verified:
 - Follow plan steps exactly
 - Don't skip verifications
 - Reference skills when plan says to
+- 涉及 Java 读侧开发时，遵循 `skills/modelView/SKILL.md` 规范
 - Between batches: just report and wait
 - Stop when blocked, don't guess

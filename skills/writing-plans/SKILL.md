@@ -17,6 +17,12 @@ Assume they are a skilled developer, but know almost nothing about our toolset o
 
 **Save plans to:** `docs/plans/YYYY-MM-DD-<feature-name>.md`
 
+## Java 开发规范（需要时必读）
+
+当计划涉及 Java 读侧开发/Model-View-Struct 流程时，计划必须明确遵循以下规范，并在每个相关任务里写明约束与示例：
+
+- 规范文件：`skills/modelView/SKILL.md`
+
 ## Bite-Sized Task Granularity
 
 **Each step is one action (2-5 minutes):**

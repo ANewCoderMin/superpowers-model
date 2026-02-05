@@ -235,6 +235,7 @@ Done!
 
 **Subagents should use:**
 - 不使用 `superpowers:test-driven-development`（本仓库禁用 TDD），按计划编写与验证测试
+- 涉及 Java 读侧开发时，遵循 `skills/modelView/SKILL.md` 规范
 
 **Alternative workflow:**
 - **superpowers:executing-plans** - Use for parallel session instead of same-session execution
