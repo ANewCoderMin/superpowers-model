@@ -7,7 +7,7 @@ Complete guide for using Superpowers with OpenAI Codex.
 Tell Codex:
 
 ```
-Fetch and follow instructions from https://raw.githubusercontent.com/obra/superpowers/refs/heads/main/.codex/INSTALL.md
+Fetch and follow instructions from https://raw.githubusercontent.com/ANewCoderMin/superpowers-model/refs/heads/main/.codex/INSTALL.md
 ```
 
 ## Manual Installation
@@ -144,8 +144,8 @@ Should show v14 or higher (v18+ recommended for ES module support).
 
 ## Getting Help
 
-- Report issues: https://github.com/obra/superpowers/issues
-- Main documentation: https://github.com/obra/superpowers
+- Report issues: https://github.com/ANewCoderMin/superpowers-model.git
+- Main documentation: https://github.com/ANewCoderMin/superpowers-model.git
 - Blog post: https://blog.fsck.com/2025/10/27/skills-for-openai-codex/
 
 ## Note

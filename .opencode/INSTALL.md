@@ -115,5 +115,5 @@ When skills reference Claude Code tools:
 
 ## Getting Help
 
-- Report issues: https://github.com/obra/superpowers/issues
-- Full documentation: https://github.com/obra/superpowers/blob/main/docs/README.opencode.md
+- Report issues: https://github.com/ANewCoderMin/superpowers-model.git
+- Full documentation: https://github.com/ANewCoderMin/superpowers-model.git

@@ -1,40 +1,29 @@
 ---
 name: requesting-code-review
-description: Use when completing tasks, implementing major features, or before merging to verify work meets requirements
+description: 仅在开发者明确要求时才使用；不自动触发
 ---
 
 # Requesting Code Review
 
-根据开发者意愿触发 superpowers:code-reviewer 子代理，提前发现问题。
+仅在开发者明确要求时使用，不自动触发、不自动派发审查。
 
-**Core principle:** 默认先问清楚是否需要 review，再执行。
+**Core principle:** 需要 review 时由开发者主动提出。
 
 ## When to Request Review
 
 **默认行为:**
-- 在需要 review 的节点先询问开发者是否需要 review
-- 只有在开发者明确同意时才发起 review
-
-**常见建议点(需开发者确认):**
-- 卡住时（需要新视角）
-- 重构前（基线检查）
-- 修复复杂 bug 后
-- 准备合并前
+- 不自动触发 review
+- 仅在开发者明确要求时执行本技能
 
 ## How to Request
 
-**1. 询问开发者是否需要 review:**
-```
-我可以发起 code review（范围/重点你来定）。需要吗？
-```
-
-**2. Get git SHAs:**
+**1. Get git SHAs:**
 ```bash
 BASE_SHA=$(git rev-parse HEAD~1)  # or origin/main
 HEAD_SHA=$(git rev-parse HEAD)
 ```
 
-**3. Dispatch code-reviewer subagent (仅在确认需要时):**
+**2. Dispatch code-reviewer subagent (仅在开发者要求时):**
 
 Use Task tool with superpowers:code-reviewer type, fill template at `code-reviewer.md`
 
@@ -45,7 +34,7 @@ Use Task tool with superpowers:code-reviewer type, fill template at `code-review
 - `{HEAD_SHA}` - Ending commit
 - `{DESCRIPTION}` - Brief summary
 
-**4. Act on feedback:**
+**3. Act on feedback:**
 - Fix Critical issues immediately
 - Fix Important issues before proceeding
 - Note Minor issues for later
@@ -81,24 +70,13 @@ You: [Fix progress indicators]
 
 ## Integration with Workflows
 
-**Subagent-Driven Development:**
-- 任务完成后先询问是否需要 review
-- 仅在确认后 review
-- review 发现问题再修复并继续
-
-**Executing Plans:**
-- 每批次完成后询问是否需要 review
-- 确认后再执行 review 并应用反馈
-
-**Ad-Hoc Development:**
-- 合并前询问是否需要 review
-- 卡住时询问是否需要 review
+**Subagent-Driven Development / Executing Plans / Ad-Hoc:**
+- 只有开发者明确要求时才触发 review
 
 ## Red Flags
 
 **Never:**
-- 未经确认直接发起 review
-- 开发者明确要求 review 却跳过
+- 未经开发者要求自动发起 review
 - Ignore Critical issues
 - Proceed with unfixed Important issues
 - Argue with valid technical feedback

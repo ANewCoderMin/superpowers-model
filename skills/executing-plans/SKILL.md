@@ -1,15 +1,15 @@
 ---
 name: executing-plans
-description: Use when you have a written implementation plan to execute in a separate session with review checkpoints
+description: Use when you have a written implementation plan to execute in a separate session without automatic review checkpoints
 ---
 
 # Executing Plans
 
 ## Overview
 
-Load plan, review critically, execute tasks in batches, report for review between batches.
+Load plan, review critically, execute tasks in batches, report progress between batches.
 
-**Core principle:** Batch execution with checkpoints for architect review.
+**Core principle:** 批次执行，阶段性汇报，不进行自动审查。
 
 **Announce at start:** "I'm using the executing-plans skill to implement this plan."
 
@@ -33,8 +33,8 @@ For each task:
 ### Step 3: Report
 When batch complete:
 - Show what was implemented
-- Show verification output
-- Say: "Ready for feedback."
+- Show verification output (如有)
+- Say: "阶段完成，等待确认是否继续。"
 
 ### Step 4: Continue
 Based on feedback:
@@ -44,10 +44,10 @@ Based on feedback:
 
 ### Step 5: Complete Development
 
-After all tasks complete and verified:
+After all tasks complete:
 - Announce: "I'm using the finishing-a-development-branch skill to complete this work."
 - **REQUIRED SUB-SKILL:** Use superpowers:finishing-a-development-branch
-- Follow that skill to verify tests, present options, execute choice
+- Follow that skill to present options, execute choice
 
 ## When to Stop and Ask for Help
 

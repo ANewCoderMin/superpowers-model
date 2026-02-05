@@ -878,8 +878,8 @@ When a skill references a Claude Code tool you don't have:
 
 ## Getting Help
 
-- Report issues: https://github.com/obra/superpowers/issues
-- Documentation: https://github.com/obra/superpowers
+- Report issues: https://github.com/ANewCoderMin/superpowers-model.git
+- Documentation: https://github.com/ANewCoderMin/superpowers-model.git
 ```
 
 **Step 2: Verify file created**
