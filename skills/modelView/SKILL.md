@@ -1,6 +1,6 @@
 ---
 name: modelView
-description: Use when 需要在 Java 项目中按主键查询、View 构建与 Struct 转换的读侧开发模式完成需求时
+description: Use when java 开发
 ---
 
 # View 主导的开发模式
