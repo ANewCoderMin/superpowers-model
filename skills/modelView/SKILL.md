@@ -9,15 +9,17 @@ description: Use when 需要在 Java 项目中按主键查询、View 构建与 S
 通过 **主键查询 + View 构建 + Struct 转换** 的链路，统一读侧口径，减少多表拼装与重复逻辑。
 
 ## 核心原则
-1. **查询尽量以主键为主**：优先用 id / taskId / xxxId 定位实体
-2. **查询结果先构建为 View**：使用 `buildView(...)` 生成 View，再从 View 取关联信息。
+1. **查询实体尽量以主键为主**：优先用 id / taskId / xxxId 定位实体
+2. **查询实体View为 View**：使用 `getViewByKey(...)` 生成 View，再从 View 取关联信息。
 3. **跨表访问不直接查库**：通过 `View#getXxxView()`/`getXxxList()` 获取关联数据。
 4. **输出统一走 Struct**：Struct 的入参通常是 `View` / `List<View>` / `Page<View>`，不直接用 Model。
 5. **转换时允许嵌套 View**：Struct 内部可以使用 View 的 getter 获取其他 View 或派生字段。
 
 ## 标准工作流（推荐顺序）
-1. **主键查询**：`baseDao.getEntityByKey(id)` 或 `baseDao.listByKeys(ids)`。
-2. **构建 View**：`buildView(entity)` / `buildView(list)` / `buildView(page)`。
+1. **主键查询**：如果不需要通过该实体获取其他实体：`baseDao.getEntityByKey(id)` 或 `baseDao.listByKeys(ids)`，
+    如果需要通过当前实体查询其他实体：`getViewByKey(id)` 或 `listViewByKeys(ids)`,
+    如果需要查询其他实体的View：`service.getViewByKey(id)` 或 `service.listViewByKeys(ids)`。
+2. **构建 View**：当没有通过1的方法获取到View时，可以通过：`buildView(entity)` / `buildView(list)` / `buildView(page)`构建View。
 3. **View 内取关联**：在 View 中调用 `buildOneToOne/buildOneToMany/build(...)`。
 4. **Struct 转换**：`struct.convert(view)` / `struct.convert(list)` / `struct.convert(page)`。
 5. **返回 VO/DTO**：对外只返回 VO/DTO，不直接返回 Model。
