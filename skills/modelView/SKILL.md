@@ -157,14 +157,18 @@ select * from b where id in (...)
 // 1) 主键查询
 A a = baseDao.getEntityByKey(id).orElseThrow(...);
 
-// 2) 构建 View
+// 2) 主键查询View
+在Service层直接：AView aView = getViewByKey(id).orElseThrow(...);
+或者 AView aView = aService.getViewByKey(id).orElseThrow(...);
+
+// 3) 构建 View
 AView view = buildView(a);
 
-// 3) View 内取关联（触发已注册的批量加载）
+// 4) View 内取关联（触发已注册的批量加载）
 BView bView = view.getBView();          // OneToOne / OneMatch
 List<CView> cViews = view.getCViews();  // ManyToOne
 
-// 4) Struct 转换输出
+// 5) Struct 转换输出
 AVo vo = aStruct.toVo(view);
 return vo;
 ```
